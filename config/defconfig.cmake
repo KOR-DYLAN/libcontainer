@@ -1,0 +1,3 @@
+set(CONFIG_TEST_FLAG_1 "y" CACHE STRING "test flag 1" FORCE)
+set(CONFIG_TEST_FLAG_2 "y" CACHE STRING "test flag 2" FORCE)
+set(CONFIG_TEST_FLAG_3 "n" CACHE STRING "test flag 3" FORCE)

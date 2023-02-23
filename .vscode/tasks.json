@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "config",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                /* source driectory */
+                "-S", "${workspaceFolder}",
+
+                /* build output directory */
+                "-B", "${workspaceFolder}/build",
+
+                /*  */
+                "-C", "${workspaceFolder}/config/defconfig.cmake",
+                
+                /* export compile commands.json */
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                /* source driectory */
+                "--build", "${workspaceFolder}/build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":[ "config" ]
+        }
+    ]
+}
