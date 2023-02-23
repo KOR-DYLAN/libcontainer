@@ -16,4 +16,4 @@ macro(scan_config)
 endmacro()
 
 #
-list(APPEND default_include_path -Iinclude)
+list(APPEND default_include_path -I${CMAKE_HOME_DIRECTORY}/include)

@@ -15,3 +15,4 @@ add_compile_options(${default_include_path})
 
 add_subdirectory(lib)
 add_subdirectory(app)
+add_subdirectory(example)

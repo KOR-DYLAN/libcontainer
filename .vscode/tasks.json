@@ -15,10 +15,16 @@
                 "-B", "${workspaceFolder}/build",
 
                 /*  */
-                "-C", "${workspaceFolder}/config/defconfig.cmake",
+                "-C", "${workspaceFolder}/config/libcontainer_defconfig.cmake",
+
+                /* build mode */
+                "-DCMAKE_BUILD_TYPE=Debug",
                 
                 /* export compile commands.json */
-                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+
+                /* enable verbose */
+                "-DCMAKE_VERBOSE_MAKEFILE=OFF"
             ],
             "group": {
                 "kind": "build",
@@ -38,6 +44,18 @@
                 "isDefault": true
             },
             "dependsOn":[ "config" ]
-        }
+        },
+        {
+            "label": "run app",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/example/libcontainer/queue/libcontainer_queue_example",
+            "args": [
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":[ "build" ]
+        },
     ]
 }
